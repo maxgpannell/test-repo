@@ -1,0 +1,207 @@
+---
+title: "STA3100 Assignment 1"
+author: "Max Pannell"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    latex_engine: lualatex
+---
+
+```{r global_options, echo = FALSE, include = FALSE}
+
+# DO NOT REMOVE THIS BLOCK !!!
+  
+  # setup block for setting default options
+  # include = FALSE above means block output will not be shown (for this block)
+  
+  # echo = FALSE below means block code will not be shown (for all blocks)
+
+knitr::opts_chunk$set(echo = TRUE, fig.width = 6, fig.height = 6)
+
+# This function sets global chunk options; it saves time from having to write `echo=TRUE` in every chunk.
+
+# For helpful tips about Rmarkdown, see the markdown_rescource.Rmd file
+
+# You may leave these comments in your final Rmarkdown document
+
+```
+
+# Problem 1
+
+```{r Problem 1}
+
+170166719%%31079
+
+
+```
+
+# Problem 2
+
+```{r Problem 2}
+
+pi*(3:100)^2
+
+
+```
+# Problem 3
+
+```{r Problem 3}
+
+2000 * 1.03^(1:30)
+
+```
+
+# Problem 4
+
+```{r Problem 4}
+
+rep(0:4, each = 5)
+
+rep(1:5, times=5)
+
+rep(0:4, each = 5) + rep(1:5, times=5)
+
+```
+
+# Problem 5
+
+```{r Problem 5}
+
+r <- 1.08
+z <- r^(1:100)
+cumsum(z)
+
+```
+
+# Problem 6
+
+```{r Problem 6}
+
+n <- 1:15
+x <- 2^n
+y <- n^3
+x[x>y]
+
+```
+
+# Problem 7
+### Part (a)
+
+```{r Problem 7, Part a}
+
+solar.radiation <- c(11.1, 10.6, 6.3, 8.8, 10.7, 11.2, 8.9, 12.2)
+
+```
+
+### Part (b)
+
+```{r Problem 7, Part b}
+
+mean(solar.radiation)
+
+median(solar.radiation)
+
+range(solar.radiation)
+
+var(solar.radiation)
+
+```
+
+### Part (c)
+
+```{r Problem 7, Part c}
+
+sr10 <- solar.radiation + 10
+
+mean(sr10)
+
+median(sr10)
+
+range(sr10)
+
+var(sr10)
+
+```
+
+The mean, median, and range each increased by 10, while the variance remained unchanged.
+
+### Part (d)
+
+```{r Problem 7, Part d}
+
+srm2 <- solar.radiation * -2
+
+mean(srm2)
+
+median(srm2)
+
+range(srm2)
+
+var(srm2)
+
+```
+
+The mean, median, and range each change by a factor of -2. The variance is changed by a factor of 4, or (-2)^2^.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+<!-- Do not remove the code below. There is no need to modify the code below, it just generates the code appendix for you.  -->
+
+# CODE APPENDIX
+
+
+```{r get_labels, echo = FALSE, include = TRUE}
+  
+  # DO NOT REMOVE THIS BLOCK !!!
+
+  # This block gets all the block labels except for the setup and appendix blocks (and its own)
+  # It also adds a blank line to the end of each code block
+  
+  block_labels <- setdiff(knitr::all_labels(), c("global_options", "get_labels", "code_appendix"))
+  if(length(block_labels) > 0){
+    local({
+      if(grepl("unnamed-chunk-", block_labels[1])){
+        source_code <- c("# ----", "", knitr::knit_code$get(block_labels[1]))
+      } else {
+        source_code <- c(paste0("# ---- ", block_labels[1]), "", knitr::knit_code$get(block_labels[1]))
+      }
+      eval(parse(text = paste0('knitr::knit_code$set("', block_labels[1], '"= source_code)')))
+    })
+    for(label in block_labels[-1]){
+      local({
+        if(grepl("unnamed-chunk-", label)){
+          source_code <- c("", "# ----", "", knitr::knit_code$get(label))
+        } else {
+          source_code <- c("", paste0("# ---- ", label), "", knitr::knit_code$get(label))
+        }
+        eval(parse(text = paste0('knitr::knit_code$set("', label, '"= source_code)')))
+      })
+    }
+  }
+
+```
+
+```{r code_appendix, ref.label = block_labels, echo = TRUE, eval = FALSE, class.output = "shadebox"}
+
+  # DO NOT REMOVE THIS BLOCK !!!
+
+  # This is the block for the code appendix
+
+```
+
+
+
