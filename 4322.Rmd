@@ -1,0 +1,56 @@
+---
+title: "STA4322 HW03"
+author: "Max Pannell"
+date: "2026-03-10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1(d)
+
+Estimator from part (a):
+
+```{r}
+set.seed(71)
+alpha_stat <- rep(0, 1000)
+for (i in 1:1000) {
+x <- rexp(50, rate = 1/3)
+alpha <- (mean(x)^2)
+alpha_stat[i] <- alpha
+}
+
+mean(alpha_stat)
+var(alpha_stat)
+```
+
+MSE:
+
+```{r}
+(mean(alpha_stat)-9)^2+var(alpha_stat)
+```
+
+Estimator from part (b):
+
+```{r}
+beta_stat <- rep(0, 1000)
+for (i in 1:1000) {
+x <- rexp(50, rate = 1/3)
+beta <- ((1/100)*sum(x^2))
+beta_stat[i] <- beta
+}
+
+mean(beta_stat)
+var(beta_stat)
+```
+
+MSE:
+
+```{r}
+(mean(beta_stat)-9)^2+var(beta_stat)
+```
+
+
+
